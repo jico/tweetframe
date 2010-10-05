@@ -3,7 +3,7 @@
 Tweetframe is a simple twitter plugin for jQuery.
 Check out a [demo](http://www.jicobaligod.com/tweetframe).
 
-There's very basic functionality right now. But there's more features coming ;)
+There's very basic functionality right now. But there are more features coming ;)
 
 
 ## Including Tweetframe
