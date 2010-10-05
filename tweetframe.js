@@ -5,15 +5,22 @@
 		var param = {
 			sn: 'jicooo',
 			count: 10,
-
+			user_bar: true,
 		}
 		
 		var _frame = this; // Reference to implicit parameter
 		var tweetCache = {};
 		var twitterUser = {};
+		
+		$('<div class="tweetframe"><div class="tweetframe_stream"></div></div>').appendTo(this);
+		
+		if (param.user_bar == true) {
+			$('<div class="tweetframe_user"></div>')
+				.prependTo('.tweetframe');
+		} else alert('no frame');
 			
 		fetchTweets(param.sn, param.count, 1, function() {
-			addTweets();
+			loadTweets();
 		});
 			
 		function fetchUser(sn) {
@@ -28,7 +35,6 @@
 		function fetchTweets(sn, count, pg, callback) {		
 			var tweets_url = 'http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name=' + sn + '&count=' + count + '&page=' + pg;
 			
-
 			// Fetch and cache tweets
 			$.getJSON(tweets_url, function(tweet_data) {
 				tweetCache = tweet_data;
@@ -36,15 +42,12 @@
 			});
 		}
 		
-		function addTweets() {
+		function loadTweets() {
 			for( i = 0; i < tweetCache.length; i++) {
-				$('<div class="tweet">' + linkifyTweet(tweetCache[i].text) + '<br /><span class="tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</span></div>').appendTo(_frame).fadeIn(100);
+				$('<div class="tweet">' + linkifyTweet(tweetCache[i].text) + '<br /><span class="tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</span></div>').appendTo('.tweetframe_stream').fadeIn(100);
 			}
 
 		}
-		
-		
-		
 		
 		
 		function parseTwitterDate(stamp) {	
