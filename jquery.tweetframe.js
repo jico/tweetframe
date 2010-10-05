@@ -18,32 +18,41 @@
 		
 		var tweetCache = {};
 		var twitterUser = {};
+		var page = 0;
 		
 		// Main function
 		return this.each(function() {
 			// Add tweetframe div
 			$('<div class="tweetframe"><div class="tweetframe_stream"></div></div>').appendTo(this);
-
+			
+			// Load userbar
 			if (options.userbar == true) {
-				$('<div class="tweetframe_user"></div>')
+				$('<div class="tweetframe_userbar"></div>')
 					.prependTo('.tweetframe');
+				fetchUser(options.username, function() {
+					loadUserbar();
+				});
 			} else alert('no frame');
 
 			fetchTweets(options.username, options.count, 1, function() {
 				loadTweets();
 			});
+
 		});
 		
-			
-		function fetchUser(sn) {
+		
+		// Fetch user object	
+		function fetchUser(sn, callback) {
 			var user_url = 'http://api.twitter.com/1/users/show.json?callback=?&screen_name=' + sn;
 			
 			$.getJSON(user_url, function(user_data) {
 				twitterUser = user_data;
+				
 				if (typeof callback == 'function') callback();
 			});
 		}
 		
+		// Fetch user timeline object
 		function fetchTweets(sn, count, pg, callback) {		
 			var tweets_url = 'http://api.twitter.com/1/statuses/user_timeline.json?callback=?&screen_name=' + sn + '&count=' + count + '&page=' + pg;
 			
@@ -54,6 +63,37 @@
 			});
 		}
 		
+		
+		function loadUserbar() {
+					
+				// Add twitter profile image
+				$('<div class="tf_profile_pic"><img class="tf_profile_image" src="' +  twitterUser.profile_image_url + '" /></div>')
+					.prependTo('.tweetframe_userbar');
+				
+				/*
+				// Add twitter username
+				$('<h3>' + twitterUser.screen_name + '</h3>')
+					.appendTo('.twitter_info');
+				// Add view profile external link
+				$('<a href="http://www.twitter.com/' + twitterUser.screen_name + '">View profile &raquo;</a>')
+					.appendTo('.twitter_info');
+				// Add user bio/description
+				$('<div class="twitter_bio">' + twitterUser.description + '</div>')
+					.appendTo('.twitter_info');
+					
+				// Add twitter statistics (followers, friends, number of tweets)	
+				$('<span class="twitter_count">' + twitterUser.followers_count + '</span>')
+					.appendTo('ul.twitter_stats li.followers');
+				$('<span class="twitter_count">' + twitterUser.friends_count + '</span>')
+					.appendTo('ul.twitter_stats li.friends');
+				$('<span class="twitter_count">' + twitterUser.statuses_count + '</span>')
+					.appendTo('ul.twitter_stats li.number_of_tweets');
+				*/
+		}
+		
+		
+		
+		// Append tweets to stream
 		function loadTweets() {
 			for( i = 0; i < tweetCache.length; i++) {
 				$('<div class="tweet">' + linkifyTweet(tweetCache[i].text) + '<br /><span class="tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</span></div>').appendTo('.tweetframe_stream').fadeIn(100);
