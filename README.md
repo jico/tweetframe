@@ -3,6 +3,7 @@
 Tweetframe is a simple twitter plugin for jQuery.
 Check out a [demo](http://www.jicobaligod.com/tweetframe).
 
+
 ## Including Tweetframe
 
 You will need jQuery to use this plugin. To include jQuery on your site, include the code below before the closing _head_ tag on the page you will be placing Tweetframe:
@@ -16,19 +17,23 @@ Then, include the Tweetframe plugin also before the closing _head_ tag, but afte
 	<script type="text/javascript" src="folder/jquery.tweetframe.js"></script>
 where _folder_ is the containing folder of the file.
 
+
 ## Initializing Tweetframe
 
 Turning Tweetframe on is simple.
 
-1.	Create a div where you want Tweetframe to be located.
+Create a div where you want Tweetframe to be located.
 	<div class="twitter"></div>
-2.	Then select that div with jQuery and initialize tweetframe like so:
+	
+Then select that div with jQuery and initialize tweetframe like so:
 	$('.twitter').tweetframe();
-3.	If you don't know how to use javascript or jQuery, no problem. Just copy and paste this code right before the closing _head_ tag of the page:
+	
+If you don't know how to use javascript or jQuery, no problem. Just copy and paste this code right before the closing _head_ tag of the page:
 	<script type="text/javascript">
 		$('.SELECT_DIV').tweetframe();
 	</script>
 And replace _.SELECT_DIV_ with well, your selected div.
+
 
 ### Options
 
