@@ -83,13 +83,26 @@
 				} else console.log('Bio is false');
 				
 					
-				// Add twitter statistics (followers, friends, number of tweets)	
-				$('<span class="twitter_count">' + twitterUser.followers_count + '</span>')
-					.appendTo('ul.twitter_stats li.followers');
-				$('<span class="twitter_count">' + twitterUser.friends_count + '</span>')
-					.appendTo('ul.twitter_stats li.friends');
-				$('<span class="twitter_count">' + twitterUser.statuses_count + '</span>')
-					.appendTo('ul.twitter_stats li.number_of_tweets');
+				// Add twitter statistics (followers, friends, number of tweets)
+				if (options.stats_tweets == true || options.stats_followers == true || options.stats_friends == true) {
+					$('<ul class="tf_twitter_stats"></ul>').appendTo('.tweetframe_userbar');
+					
+					if (options.stats_tweets == true) {
+						$('<li class="tf_stat">' + twitterUser.statuses_count + '</li>')
+							.appendTo('ul.tf_twitter_stats');
+					}
+					if (options.stats_followers == true) {
+						$('<li class="tf_stat">' + twitterUser.followers_count + '</li>')
+							.appendTo('ul.tf_twitter_stats');
+					}
+					if (options.stats_friends == true) {
+						$('<li class="tf_stat">' + twitterUser.friends_count + '</li>')
+							.appendTo('ul.tf_twitter_stats');
+					}
+				}	
+				
+				
+				
 
 		}
 		
