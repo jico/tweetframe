@@ -1,27 +1,39 @@
 (function($) {
 	
-	$.fn.tweetframe = function() {
-		// Default parameters
-		var param = {
-			sn: 'jicooo',
-			count: 10,
-			user_bar: true,
-		}
+	$.fn.tweetframe = function(options) {
+		// Default parameters and settings
+		var defaults = {
+			username : 'jicooo',		// Twitter handle
+			count : 10,					// Number of tweets to display
+			userbar : true,				// Display user information
+			stats_tweets : true,		// Display tweets count
+			stats_followers : false,	// Display follower count
+			stats_friends : false,		// Display friends count
+			stream_img : false			// Display profile pics in twitter stream
+			
+		};
 		
-		var _frame = this; // Reference to implicit parameter
+		// Extend default parameters with custom params
+		options = $.extend(defaults, options);
+		
 		var tweetCache = {};
 		var twitterUser = {};
 		
-		$('<div class="tweetframe"><div class="tweetframe_stream"></div></div>').appendTo(this);
-		
-		if (param.user_bar == true) {
-			$('<div class="tweetframe_user"></div>')
-				.prependTo('.tweetframe');
-		} else alert('no frame');
-			
-		fetchTweets(param.sn, param.count, 1, function() {
-			loadTweets();
+		// Main function
+		return this.each(function() {
+			// Add tweetframe div
+			$('<div class="tweetframe"><div class="tweetframe_stream"></div></div>').appendTo(this);
+
+			if (options.userbar == true) {
+				$('<div class="tweetframe_user"></div>')
+					.prependTo('.tweetframe');
+			} else alert('no frame');
+
+			fetchTweets(options.username, options.count, 1, function() {
+				loadTweets();
+			});
 		});
+		
 			
 		function fetchUser(sn) {
 			var user_url = 'http://api.twitter.com/1/users/show.json?callback=?&screen_name=' + sn;
