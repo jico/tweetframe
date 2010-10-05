@@ -9,7 +9,8 @@
 			stats_tweets : true,		// Display tweets count
 			stats_followers : false,	// Display follower count
 			stats_friends : false,		// Display friends count
-			stream_img : false			// Display profile pics in twitter stream
+			stream_img : false,			// Display profile pics in twitter stream
+			bio : true
 			
 		};
 		
@@ -32,7 +33,7 @@
 				fetchUser(options.username, function() {
 					loadUserbar();
 				});
-			} else alert('no frame');
+			}
 
 			fetchTweets(options.username, options.count, 1, function() {
 				loadTweets();
@@ -70,16 +71,17 @@
 				$('<div class="tf_profile_pic"><img class="tf_profile_image" src="' +  twitterUser.profile_image_url + '" /></div>')
 					.prependTo('.tweetframe_userbar');
 				
-				/*
+
 				// Add twitter username
-				$('<h3>' + twitterUser.screen_name + '</h3>')
-					.appendTo('.twitter_info');
-				// Add view profile external link
-				$('<a href="http://www.twitter.com/' + twitterUser.screen_name + '">View profile &raquo;</a>')
-					.appendTo('.twitter_info');
+				$('<span class="tf_username"><a href="' + twitterUser.screen_name + '">' + twitterUser.screen_name + '</a></span>')
+					.appendTo('.tweetframe_userbar');
+				
 				// Add user bio/description
-				$('<div class="twitter_bio">' + twitterUser.description + '</div>')
-					.appendTo('.twitter_info');
+				if (options.bio == true) {
+					$('<div class="tf_bio">' + twitterUser.description + '</div>')
+						.appendTo('.tweetframe_userbar');
+				} else console.log('Bio is false');
+				
 					
 				// Add twitter statistics (followers, friends, number of tweets)	
 				$('<span class="twitter_count">' + twitterUser.followers_count + '</span>')
@@ -88,7 +90,7 @@
 					.appendTo('ul.twitter_stats li.friends');
 				$('<span class="twitter_count">' + twitterUser.statuses_count + '</span>')
 					.appendTo('ul.twitter_stats li.number_of_tweets');
-				*/
+
 		}
 		
 		
