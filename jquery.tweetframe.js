@@ -64,7 +64,7 @@
 			});
 		}
 		
-		
+		// Loads user bar 
 		function loadUserbar() {
 					
 				// Add twitter profile image
@@ -100,9 +100,6 @@
 							.appendTo('ul.tf_twitter_stats');
 					}
 				}	
-				
-				
-				
 
 		}
 		
