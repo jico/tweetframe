@@ -3,6 +3,8 @@
 Tweetframe is a simple twitter plugin for jQuery.
 Check out a [demo](http://www.jicobaligod.com/tweetframe).
 
+There's very basic functionality right now. But there's more features coming ;)
+
 
 ## Including Tweetframe
 
@@ -16,6 +18,29 @@ where _folder_ is the containing folder of the file.
 Then, include the Tweetframe plugin also before the closing _head_ tag, but after the jQuery reference:
 	<script type="text/javascript" src="folder/jquery.tweetframe.js"></script>
 where _folder_ is the containing folder of the file.
+
+
+## Appearance
+
+You'll need to include the CSS file to make Tweetframe look pretty:
+	<link rel="stylesheet" href="tweetframe.css" type="text/css" />
+
+Or if you'd like to customize the look for yourself, here's the layout within the selected div:
+	<div class="tweetframe">
+		<div class="tweetframe_userbar">
+			<div class="tf_profile_pic"><img class="tf_profile_image" /></div>
+			<span class="tf_username"><a>USERNAME</a></span>
+			<ul class="tf_twitter_stats">
+				<li class="tf_stat"><span class="tf_stat_title"></span></li>
+			</ul>
+			<div class="tf_bio"></div>
+		</div> <!-- .tweetframe_userbar -->
+		<div class="tweetframe_stream">
+			<div class="tweetframe_tweet">
+				<div class="tf_tweet_detail"></div>
+			</div>
+		</div> <!-- .tweetframe_stream -->
+	</div>
 
 
 ## Initializing Tweetframe
@@ -33,6 +58,18 @@ If you don't know how to use javascript or jQuery, no problem. Just copy and pas
 		$('.SELECT_DIV').tweetframe();
 	</script>
 And replace _.SELECT_DIV_ with well, your selected div.
+
+
+## Customizing
+
+Tweetframe comes with some customization options (with more to come). The list of options are listed in the next section. To customize these options, pass an object literal when calling tweetframe and set the options you want (or don't want).
+
+Example:
+	$('.twitter').tweetframe({
+		username: 'yournamehere',
+		count: 10,
+		bio: false
+	});
 
 
 ### Options
