@@ -4,14 +4,12 @@
 		// Default parameters and settings
 		var defaults = {
 			username : 'jicooo',		// Twitter handle
-			count : 10,					// Number of tweets to display
+			count : 5,					// Number of tweets to display
 			userbar : true,				// Display user information
 			stats_tweets : true,		// Display tweets count
-			stats_followers : false,	// Display follower count
-			stats_friends : false,		// Display friends count
-			stream_img : false,			// Display profile pics in twitter stream
+			stats_followers : true,	// Display follower count
+			stats_friends : true,		// Display friends count
 			bio : true
-			
 		};
 		
 		// Extend default parameters with custom params
@@ -35,7 +33,7 @@
 				});
 			}
 
-			fetchTweets(options.username, options.count, 1, function() {
+			fetchTweets(options.username, options.count, page, function() {
 				loadTweets();
 			});
 
@@ -76,16 +74,12 @@
 				$('<span class="tf_username"><a href="' + twitterUser.screen_name + '">' + twitterUser.screen_name + '</a></span>')
 					.appendTo('.tweetframe_userbar');
 				
-				// Add user bio/description
-				if (options.bio == true) {
-					$('<div class="tf_bio">' + twitterUser.description + '</div>')
-						.appendTo('.tweetframe_userbar');
-				} else console.log('Bio is false');
+				
 				
 					
 				// Add twitter statistics (followers, friends, number of tweets)
 				if (options.stats_tweets == true || options.stats_followers == true || options.stats_friends == true) {
-					$('<ul class="tf_twitter_stats"></ul>').prependTo('.tweetframe_userbar');
+					$('<ul class="tf_twitter_stats"></ul>').appendTo('.tweetframe_userbar');
 					
 					if (options.stats_tweets == true) {
 						$('<li class="tf_stat"><span class="tf_stat_title">Tweets</span><br />' + twitterUser.statuses_count + '</li>')
@@ -100,7 +94,12 @@
 							.appendTo('ul.tf_twitter_stats');
 					}
 				}	
-
+				
+				// Add user bio/description
+				if (options.bio == true) {
+					$('<div class="tf_bio">' + twitterUser.description + '</div>')
+						.appendTo('.tweetframe_userbar');
+				} else console.log('Bio is false');
 		}
 		
 		

@@ -1,29 +1,43 @@
 #testBox {
 	border: 1px solid #bbb;
-	width: 400px;
+	width: 200px;
 	margin: 0 auto;
 }
 
 .tweetframe {
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
+	font: 0.8em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #3c3d3d;
+}
+
+.tweetframe a {
+	color: #3b82f6;
+	text-decoration: none;
 }
 
 .tweetframe_userbar {
 	border-bottom: 1px solid #bbb;
-	padding: 10px;
+	padding-bottom: 5px;
+	background-color: #f1f5fd;
 }
 
 .tf_profile_pic {
 	float: left;
-	margin-right: 10px;
+	margin: 10px;
 	margin-bottom: 5px;
 }
 
+img.tf_profile_image {
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px; 
+}
+
+
 .tf_username {
 	font-size: 2em;
-	
+	line-height: 2em;
 }
 
 .tf_username a {
@@ -33,25 +47,31 @@
 
 .tf_username a:hover {
 	text-decoration: underline;
+	color: #3b82f6;
 }
 
 .tf_bio {
 	clear: both;
-	
+	margin: 10px;
 }
 
 ul.tf_twitter_stats {
-	float: right;
+	clear: both;
+	position: relative;
 	list-style: none;
 	text-align: center;
-	padding: 0;
-	margin: 0;
+	padding: 0 8px;
+	font-size: smaller;
 }
 
 li.tf_stat {
 	float: left;
-	border: 1px solid #bbb;
-	padding: 2px;
+	padding: 5px;
+	margin: 2px 2px;
+	background-color: #e0ebfc;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
 
 li.tf_stat .tf_stat_title {
@@ -59,10 +79,33 @@ li.tf_stat .tf_stat_title {
 }
 
 .tweetframe_tweet {
-	padding: 10px;
-}
-
-.tweetframe_stream {
+	padding: 5px 10px;
+	border-bottom: 1px solid #ddd;
 	
 }
 
+
+
+.tf_tweet_detail {
+	font-size: small;
+}
+
+.tf_tweet_detail a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.tf_tweet_detail a:hover {
+	color: #3b82f6;
+}
+
+.tweetframe_stream {
+	color: #454545;
+}
+
+.tweetframe_tweet:first-child {
+	font-size: larger;
+	box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px -2px 48x rgba(0,0,0,0.1);
+	-webkit-box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
+}
