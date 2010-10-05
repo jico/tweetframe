@@ -1,22 +1,68 @@
 #testBox {
-			border: 1px solid black;
-			width: 400px;
-			margin: 0 auto;
-		}
+	border: 1px solid #bbb;
+	width: 400px;
+	margin: 0 auto;
+}
 
 .tweetframe {
 	margin: 0;
-	padding: 10px;
+	padding: 0;
+	font-size: 1em;
 }
 
 .tweetframe_userbar {
+	border-bottom: 1px solid #bbb;
+	padding: 10px;
+}
+
+.tf_profile_pic {
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+.tf_username {
+	font-size: 2em;
 	
 }
 
-.tweetframe_tweet {
+.tf_username a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.tf_username a:hover {
+	text-decoration: underline;
+}
+
+.tf_bio {
+	clear: both;
 	
+}
+
+ul.tf_twitter_stats {
+	float: right;
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+li.tf_stat {
+	float: left;
+	border: 1px solid #bbb;
+	padding: 2px;
+}
+
+li.tf_stat .tf_stat_title {
+	font-weight: bold;
+}
+
+.tweetframe_tweet {
+	padding: 10px;
 }
 
 .tweetframe_stream {
 	
 }
+

@@ -85,18 +85,18 @@
 					
 				// Add twitter statistics (followers, friends, number of tweets)
 				if (options.stats_tweets == true || options.stats_followers == true || options.stats_friends == true) {
-					$('<ul class="tf_twitter_stats"></ul>').appendTo('.tweetframe_userbar');
+					$('<ul class="tf_twitter_stats"></ul>').prependTo('.tweetframe_userbar');
 					
 					if (options.stats_tweets == true) {
-						$('<li class="tf_stat">' + twitterUser.statuses_count + '</li>')
+						$('<li class="tf_stat"><span class="tf_stat_title">Tweets</span><br />' + twitterUser.statuses_count + '</li>')
 							.appendTo('ul.tf_twitter_stats');
 					}
 					if (options.stats_followers == true) {
-						$('<li class="tf_stat">' + twitterUser.followers_count + '</li>')
+						$('<li class="tf_stat"><span class="tf_stat_title">Followers</span><br />' + twitterUser.followers_count + '</li>')
 							.appendTo('ul.tf_twitter_stats');
 					}
 					if (options.stats_friends == true) {
-						$('<li class="tf_stat">' + twitterUser.friends_count + '</li>')
+						$('<li class="tf_stat"><span class="tf_stat_title">Friends</span><br />' + twitterUser.friends_count + '</li>')
 							.appendTo('ul.tf_twitter_stats');
 					}
 				}	
@@ -108,7 +108,7 @@
 		// Append tweets to stream
 		function loadTweets() {
 			for( i = 0; i < tweetCache.length; i++) {
-				$('<div class="tweet">' + linkifyTweet(tweetCache[i].text) + '<br /><span class="tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</span></div>').appendTo('.tweetframe_stream').fadeIn(100);
+				$('<div class="tweetframe_tweet">' + linkifyTweet(tweetCache[i].text) + '<br /><span class="tf_tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</span></div>').appendTo('.tweetframe_stream').fadeIn(100);
 			}
 
 		}
