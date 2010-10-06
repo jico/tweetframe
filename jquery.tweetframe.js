@@ -11,6 +11,7 @@
 			stats_followers : true,		// Display follower count
 			stats_friends : true,		// Display friends count
 			bio : true,					// Display bio
+			detail : 'time'				// Details of tweets to display ('time', 'full', or 'none')
 		};
 		
 		// Extend default parameters with custom params
@@ -101,10 +102,17 @@
 				} else console.log('Bio is false');
 		}
 		
-		// Append tweets to stream
+		// Append tweets to stream with tweet detail according to options
 		function loadTweets() {
 			for( i = 0; i < tweetCache.length; i++) {
-				$('<div class="tweetframe_tweet">' + linkifyTweet(tweetCache[i].text) + '<div class="tf_tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</div></div>').appendTo('.tweetframe_stream');
+				var tweet = '<div class="tweetframe_tweet">' + linkifyTweet(tweetCache[i].text) + '</div>';
+				if (options.detail == 'time') {
+					tweet = '<div class="tweetframe_tweet">' + linkifyTweet(tweetCache[i].text) + '<div class="tf_tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + '</div></div>';
+				} else if (options.detail == 'full') {
+					tweet = '<div class="tweetframe_tweet">' + linkifyTweet(tweetCache[i].text) + '<div class="tf_tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</div></div>';
+				}
+				
+				$(tweet).appendTo('.tweetframe_stream');
 			}
 		}
 		
