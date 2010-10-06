@@ -4,27 +4,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+	<style type="text/css">
+		body {
+			font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+			color: #3c3d3d;
+			padding: 0 1em;
+		}
+		#testBox {
+			border: 1px solid #bbb;
+			width: 240px;
+			margin: 1em 0;
+		}
+		a {
+			text-decoration: none;
+			color: #3b82f6;
+		}
+	</style>
 	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="jquery.tweetframe.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
+			var active = false;
+			
 			$('#test').click(function() {
 				$('#testBox').tweetframe();
-			})
+				active = true;
+			});
 		});
 	</script>
 	
-	<title>Tweetframe Testing</title>
+	<title>Tweetframe Demo</title>
 	<link rel="stylesheet" href="tweetframe.css" type="text/css" />
 	
 </head>
 
 <body>
+	<h1>Tweetframe Demo</h1>
+	<br />
 	<input type="button" id="test" value="Activate Tweetframe" />
+	<a alt="Download from github" href="http://www.github.com/jico/tweetframe">Download</a>
 	
 	<div id="testBox"></div>
+	
+	<div id="footer">
+		<p>Created by <a href="http://www.jicobaligod.com">Jico</a>.</p>
+	</div>
 
 </body>
 </html>
