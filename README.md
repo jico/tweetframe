@@ -81,3 +81,8 @@ Example:
 +	**stats_followers:** Display followers count [boolean, default: true] *ex. stats_followers: false*
 +	**stats_friends:**	Display friends count [boolean, default: true] *ex. stats_friends: false*
 +	**bio:**		Display Twitter bio [boolean, default: true] *ex. bio: false*
+
+
+
+Copyright &copy; 2010 Jico Baligod
+Under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
