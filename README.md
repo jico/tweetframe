@@ -82,6 +82,7 @@ Example:
 +	**stats_followers:** Display followers count [boolean, default: true] *i.e. stats_followers: false*
 +	**stats_friends:**	Display friends count [boolean, default: true] *i.e. stats_friends: false*
 +	**bio:**		Display Twitter bio [boolean, default: true] *i.e. bio: false*
++	**detail:**		Display details of tweet. [String, 'time' by default, 'full' for both time and source, or 'none'] *i.e. detail: 'full'*
 
 
 
