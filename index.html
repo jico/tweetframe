@@ -28,8 +28,12 @@
 			var active = false;
 			
 			$('#test').click(function() {
-				$('#testBox').tweetframe();
-				active = true;
+				if ( active == false ) {
+					$('#testBox').tweetframe();
+					active = true;
+					$('#test').hide();
+				}
+				
 			});
 		});
 	</script>
@@ -43,7 +47,7 @@
 	<h1>Tweetframe Demo</h1>
 	<br />
 	<input type="button" id="test" value="Activate Tweetframe" />
-	<a alt="Download from github" href="http://www.github.com/jico/tweetframe">Download</a>
+	<a alt="Download from github" href="http://www.github.com/jico/tweetframe">Download &raquo;</a>
 	
 	<div id="testBox"></div>
 	

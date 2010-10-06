@@ -6,10 +6,11 @@
 			username : 'jicooo',		// Twitter handle
 			count : 5,					// Number of tweets to display
 			userbar : true,				// Display user information
+			location : true,			// Display user location
 			stats_tweets : true,		// Display tweets count
-			stats_followers : true,	// Display follower count
+			stats_followers : true,		// Display follower count
 			stats_friends : true,		// Display friends count
-			bio : true
+			bio : true,					// Display bio
 		};
 		
 		// Extend default parameters with custom params
@@ -46,7 +47,7 @@
 			
 			$.getJSON(user_url, function(user_data) {
 				twitterUser = user_data;
-				
+				console.log(twitterUser);
 				if (typeof callback == 'function') callback();
 			});
 		}
@@ -71,8 +72,11 @@
 				
 
 				// Add twitter username
-				$('<span class="tf_username"><a href="' + twitterUser.screen_name + '">' + twitterUser.screen_name + '</a></span>')
+				$('<div class="tf_username"><a href="' + twitterUser.screen_name + '">' + twitterUser.screen_name + '</a></div>')
 					.appendTo('.tweetframe_userbar');
+				
+				// Add user location
+				if (options.location == true) $('<div class="tf_location">' + twitterUser.location + '</div>').appendTo('.tweetframe_userbar');
 				
 				
 				
@@ -107,9 +111,8 @@
 		// Append tweets to stream
 		function loadTweets() {
 			for( i = 0; i < tweetCache.length; i++) {
-				$('<div class="tweetframe_tweet">' + linkifyTweet(tweetCache[i].text) + '<br /><span class="tf_tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</span></div>').appendTo('.tweetframe_stream').fadeIn(100);
+				$('<div class="tweetframe_tweet">' + linkifyTweet(tweetCache[i].text) + '<div class="tf_tweet_detail">' + parseTwitterDate(tweetCache[i].created_at) + ' via ' + tweetCache[i].source + '</div></div>').appendTo('.tweetframe_stream');
 			}
-
 		}
 		
 		

@@ -1,14 +1,14 @@
 # Tweetframe
 
 Tweetframe is a simple twitter plugin for jQuery.
-Check out a [demo](http://www.jicobaligod.com/tweetframe).
+Check out a [demo](http://www.jicobaligod.com/tweetframe)!
 
 There's very basic functionality right now. But there are more features coming ;)
 
 
 ## Including Tweetframe
 
-You will need jQuery to use this plugin. To include jQuery on your site, include the code below before the closing _head_ tag on the page you will be placing Tweetframe:
+You will need jQuery to use this plugin. To include jQuery on your site, paste the code below before the closing _head_ tag on the page you will be placing Tweetframe:
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 	
 Or, link to the included file:
@@ -74,13 +74,14 @@ Example:
 
 ### Options
 
-+	**username:**	Your Twitter handle [String] *ex. username: 'jicooo'*
-+	**count:** 		Number of tweets to display [int, default: 5] *ex. count: 10*
-+	**userbar:** 	Display Twitter user information [boolean, default: true] *ex. userbar: false*
-+	**stats_tweets:**	Display tweet count [boolean, default: true] *ex. stats_tweets: false*
-+	**stats_followers:** Display followers count [boolean, default: true] *ex. stats_followers: false*
-+	**stats_friends:**	Display friends count [boolean, default: true] *ex. stats_friends: false*
-+	**bio:**		Display Twitter bio [boolean, default: true] *ex. bio: false*
++	**username:**	Your Twitter handle [String] *i.e. username: 'jicooo'*
++	**count:** 		Number of tweets to display [int, default: 5] *i.e. count: 10*
++	**userbar:** 	Display Twitter user information [boolean, default: true] *i.e. userbar: false*
++	**location:**	Display user location under username [boolean, default: true] *i.e. location: false*
++	**stats_tweets:**	Display tweet count [boolean, default: true] *i.e. stats_tweets: false*
++	**stats_followers:** Display followers count [boolean, default: true] *i.e. stats_followers: false*
++	**stats_friends:**	Display friends count [boolean, default: true] *i.e. stats_friends: false*
++	**bio:**		Display Twitter bio [boolean, default: true] *i.e. bio: false*
 
 
 

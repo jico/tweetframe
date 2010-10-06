@@ -31,6 +31,7 @@ img.tf_profile_image {
 .tf_username {
 	font-size: 2em;
 	line-height: 2em;
+	margin: 0;
 }
 
 .tf_username a {
@@ -41,6 +42,10 @@ img.tf_profile_image {
 .tf_username a:hover {
 	text-decoration: underline;
 	color: #3b82f6;
+}
+
+.tf_location {
+	margin-top: -0.5em;
 }
 
 .tf_bio {
