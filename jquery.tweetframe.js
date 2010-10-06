@@ -40,7 +40,6 @@
 
 		});
 		
-		
 		// Fetch user object	
 		function fetchUser(sn, callback) {
 			var user_url = 'http://api.twitter.com/1/users/show.json?callback=?&screen_name=' + sn;
@@ -70,16 +69,12 @@
 				$('<div class="tf_profile_pic"><img class="tf_profile_image" src="' +  twitterUser.profile_image_url + '" /></div>')
 					.prependTo('.tweetframe_userbar');
 				
-
 				// Add twitter username
 				$('<div class="tf_username"><a href="' + twitterUser.screen_name + '">' + twitterUser.screen_name + '</a></div>')
 					.appendTo('.tweetframe_userbar');
 				
 				// Add user location
 				if (options.location == true) $('<div class="tf_location">' + twitterUser.location + '</div>').appendTo('.tweetframe_userbar');
-				
-				
-				
 					
 				// Add twitter statistics (followers, friends, number of tweets)
 				if (options.stats_tweets == true || options.stats_followers == true || options.stats_friends == true) {
@@ -106,8 +101,6 @@
 				} else console.log('Bio is false');
 		}
 		
-		
-		
 		// Append tweets to stream
 		function loadTweets() {
 			for( i = 0; i < tweetCache.length; i++) {
@@ -115,7 +108,7 @@
 			}
 		}
 		
-		
+		// Changes Tweet time to relative time (i.e. about 20 mins ago)
 		function parseTwitterDate(stamp) {	
 			// Fixes problem with date parsing in IE	
 			var parsed_date = Date.parse(stamp.replace(/^([a-z]{3})( [a-z]{3} \d\d?)(.*)( \d{4})$/i, '$1,$2$4$3'));
@@ -125,7 +118,7 @@
 			var pluralize = function (singular, n) {
 				return '' + n + ' ' + singular + (n == 1 ? '' : 's');
 			};
-			if(delta < 60) {
+			if (delta < 60) {
 				return 'less than a minute ago';
 			} else if(delta < (60*60)) {
 				return 'about ' + pluralize("minute", parseInt(delta / 60)) + ' ago';
@@ -136,6 +129,7 @@
 			}
 		}
 		
+		// Replaces @usernames, #hashtags, and urls with html links
 		function linkifyTweet(tweet) {
 			var url_exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
 			var user_exp = /(^|\s)(@\w+)/gm;
