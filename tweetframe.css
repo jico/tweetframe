@@ -1,13 +1,13 @@
 #testBox {
 	border: 1px solid #bbb;
-	width: 200px;
+	width: 240px;
 	margin: 0 auto;
 }
 
 .tweetframe {
 	margin: 0;
 	padding: 0;
-	font: 0.8em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	color: #3c3d3d;
 }
 
@@ -18,7 +18,6 @@
 
 .tweetframe_userbar {
 	border-bottom: 1px solid #bbb;
-	padding-bottom: 5px;
 	background-color: #f1f5fd;
 }
 
@@ -67,7 +66,8 @@ ul.tf_twitter_stats {
 li.tf_stat {
 	float: left;
 	padding: 5px;
-	margin: 2px 2px;
+	margin: 5px 2px;
+	width: 50px;
 	background-color: #e0ebfc;
 	border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -87,7 +87,7 @@ li.tf_stat .tf_stat_title {
 
 
 .tf_tweet_detail {
-	font-size: small;
+	font-size: 10px;
 }
 
 .tf_tweet_detail a {
@@ -104,7 +104,7 @@ li.tf_stat .tf_stat_title {
 }
 
 .tweetframe_tweet:first-child {
-	font-size: larger;
+	font-size: 14px;
 	box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px -2px 48x rgba(0,0,0,0.1);
 	-webkit-box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
