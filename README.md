@@ -1,7 +1,7 @@
 # Tweetframe
 
 Tweetframe is a simple twitter plugin for jQuery.
-Check out a [demo](http://www.jicobaligod.com/tweetframe)!
+Check out a [demo](http://labs.jicobaligod.com/tweetframe) on my labs page!
 
 There's very basic functionality right now. But there are more features coming ;)
 
@@ -86,5 +86,5 @@ Example:
 
 
 
-Copyright &copy; 2010 Jico Baligod
+Copyright &copy; 2010 Jico Baligod  
 Under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
