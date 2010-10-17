@@ -41,14 +41,19 @@
 				if (options.firstLarger) $('.tweetframe_tweet:first-child').css('font-size','larger');
 			});
 			
+			// Image previews feature for plixi, tweetphoto, yfrog
+			
 			$('.tweetframe_tweet a').live('click', function(e) {
 				var link = $(this).attr('href');
 				var parent = $(this).parent();
+				var w = parent.width() + 'px';
 
 				// If yfrog/plixi/tweetphoto, prevent default
-				if (loadImagePreview(link, parent)) return false;
+				if (loadImagePreview(link, parent)) {
+					$('.twitter_image_preview').css('max-width', w);
+					return false;
+				}
 			});
-
 		});
 		
 		// Fetch user object	
@@ -161,12 +166,13 @@
 			return new_tweet;
 		}
 		
+		// Appends images from yfrog, tweetphoto, plixi urls to tweet
 		function loadImagePreview(link, target) {		
 			if ( link.match(/(yfrog.)/i) ) {
 				$('<img src="' + link + ':iphone" class="twitter_image_preview" />').appendTo(target);
 				return true;
 			} if ( link.match(/(plixi.|tweetphoto.)/i) ) {
-				$('<img src="http://api.plixi.com/api/tpapi.svc/imagefromurl?size=thumb&url=' 
+				$('<img src="http://api.plixi.com/api/tpapi.svc/imagefromurl?size=medium&url=' 
 				+ link + '" class="twitter_image_preview" />').appendTo(target); 
 				return true;
 			} else return false;
