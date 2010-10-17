@@ -83,6 +83,7 @@ Example:
 +	**stats_friends:**	Display friends count [boolean, default: true] *i.e. stats_friends: false*
 +	**bio:**		Display Twitter bio [boolean, default: true] *i.e. bio: false*
 +	**detail:**		Display details of tweet. [String, 'time' by default, 'full' for both time and source, or 'none'] *i.e. detail: 'full'*
++	**firstLarger**	Make first/latest tweet font-size larger [boolean, default: true] *i.e. detail: 'false'*
 
 
 
