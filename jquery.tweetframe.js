@@ -11,7 +11,8 @@
 			stats_followers : true,		// Display follower count
 			stats_friends : true,		// Display friends count
 			bio : true,					// Display bio
-			detail : 'time'				// Details of tweets to display ('time', 'full', or 'none')
+			detail : 'time',			// Details of tweets to display ('time', 'full', or 'none')
+			firstLarger : true			// Makes first tweet font size larger
 		};
 		
 		// Extend default parameters with custom params
@@ -37,6 +38,7 @@
 
 			fetchTweets(options.username, options.count, page, function() {
 				loadTweets();
+				if (options.firstLarger) $('.tweetframe_tweet:first-child').css('font-size','larger');
 			});
 
 		});
