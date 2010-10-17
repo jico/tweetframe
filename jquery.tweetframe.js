@@ -40,6 +40,14 @@
 				loadTweets();
 				if (options.firstLarger) $('.tweetframe_tweet:first-child').css('font-size','larger');
 			});
+			
+			$('.tweetframe_tweet a').live('click', function(e) {
+				var link = $(this).attr('href');
+				var parent = $(this).parent();
+
+				// If yfrog/plixi/tweetphoto, prevent default
+				if (loadImagePreview(link, parent)) return false;
+			});
 
 		});
 		
@@ -151,6 +159,17 @@
 							.replace(hash_exp, '<a href="http://www.twitter.com/search?q=$1">#$1</a>');
 
 			return new_tweet;
+		}
+		
+		function loadImagePreview(link, target) {		
+			if ( link.match(/(yfrog.)/i) ) {
+				$('<img src="' + link + ':iphone" class="twitter_image_preview" />').appendTo(target);
+				return true;
+			} if ( link.match(/(plixi.|tweetphoto.)/i) ) {
+				$('<img src="http://api.plixi.com/api/tpapi.svc/imagefromurl?size=thumb&url=' 
+				+ link + '" class="twitter_image_preview" />').appendTo(target); 
+				return true;
+			} else return false;
 		}
 		
 		
