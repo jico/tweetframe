@@ -12,7 +12,8 @@
 			stats_friends : true,		// Display friends count
 			bio : true,					// Display bio
 			detail : 'time',			// Details of tweets to display ('time', 'full', or 'none')
-			firstLarger : true			// Makes first tweet font size larger
+			firstLarger : true,			// Makes first tweet font size larger
+			imagePreview : true			// Display image link previews in stream
 		};
 		
 		// Extend default parameters with custom params
@@ -42,18 +43,20 @@
 			});
 			
 			// Image previews feature for plixi, tweetphoto, yfrog
-			
-			$('.tweetframe_tweet a').live('click', function(e) {
-				var link = $(this).attr('href');
-				var parent = $(this).parent();
-				var w = parent.width() + 'px';
+			if (options.imagePreview) {
+				$('.tweetframe_tweet a').live('click', function(e) {
+					var link = $(this).attr('href');
+					var parent = $(this).parent();
+					var w = parent.width() + 'px';
 
-				// If yfrog/plixi/tweetphoto, prevent default
-				if (loadImagePreview(link, parent)) {
-					$('.twitter_image_preview').css('max-width', w);
-					return false;
-				}
-			});
+					// If yfrog/plixi/tweetphoto, prevent default
+					if (loadImagePreview(link, parent)) {
+						$('.twitter_image_preview').css('max-width', w);
+						return false;
+					}
+				});
+			}
+			
 		});
 		
 		// Fetch user object	
