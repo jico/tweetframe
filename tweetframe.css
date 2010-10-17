@@ -103,7 +103,6 @@ li.tf_stat .tf_stat_title {
 }
 
 .tweetframe_tweet:first-child {
-	font-size: 14px;
 	box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0px -2px 48x rgba(0,0,0,0.1);
 	-webkit-box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
