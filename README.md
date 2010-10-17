@@ -3,8 +3,6 @@
 Tweetframe is a simple twitter plugin for jQuery.
 Check out a [demo](http://labs.jicobaligod.com/tweetframe) on my labs page!
 
-There's very basic functionality right now. But there are more features coming ;)
-
 
 ## Including Tweetframe
 
@@ -83,7 +81,8 @@ Example:
 +	**stats_friends:**	Display friends count [boolean, default: true] *i.e. stats_friends: false*
 +	**bio:**		Display Twitter bio [boolean, default: true] *i.e. bio: false*
 +	**detail:**		Display details of tweet. [String, 'time' by default, 'full' for both time and source, or 'none'] *i.e. detail: 'full'*
-+	**firstLarger**	Make first/latest tweet font-size larger [boolean, default: true] *i.e. detail: 'false'*
++	**firstLarger:**	Make first/latest tweet font-size larger [boolean, default: true] *i.e. detail: 'false'*
++	**imagePreview:**	Display image links as previews in-stream (inside tweet box). Supports yfrog, tweetphoto, and plixi. [boolean, default: true] *i.e. imagePreview: false*
 
 
 
