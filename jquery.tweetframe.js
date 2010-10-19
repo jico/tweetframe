@@ -4,7 +4,7 @@
 		// Default parameters and settings
 		var defaults = {
 			username : 'jicooo',		// Twitter handle
-			count : 5,					// Number of tweets to display
+			count : 25,					// Number of tweets to display
 			userbar : true,				// Display user information
 			location : true,			// Display user location
 			stats_tweets : true,		// Display tweets count
@@ -44,6 +44,10 @@
 			
 			// Image previews feature for plixi, tweetphoto, yfrog
 			if (options.imagePreview) {
+				$('<img />')
+					.attr('src','http://www.jicobaligod.com/images/loadingbar.gif')
+					.appendTo(document)
+					.hide();
 				$('.tweetframe_tweet a').live('click', function(e) {
 					var link = $(this).attr('href');
 					var parent = $(this).parent();
@@ -170,13 +174,25 @@
 		}
 		
 		// Appends images from yfrog, tweetphoto, plixi urls to tweet
-		function loadImagePreview(link, target) {		
+		function loadImagePreview(link, target) {
+			var loader = '<br /><img class="loader_bar" src="http://www.jicobaligod.com/images/loadingbar.gif" />';
+					
 			if ( link.match(/(yfrog.)/i) ) {
-				$('<img src="' + link + ':iphone" class="twitter_image_preview" />').appendTo(target);
+				$(loader).appendTo(target);
+				$('<img src="' + link + ':iphone" class="twitter_image_preview" />')
+					.appendTo(target)
+					.load(function() {
+						$('.loader_bar').remove();
+					});
 				return true;
 			} if ( link.match(/(plixi.|tweetphoto.)/i) ) {
+				$(loader).appendTo(target);
 				$('<img src="http://api.plixi.com/api/tpapi.svc/imagefromurl?size=medium&url=' 
-				+ link + '" class="twitter_image_preview" />').appendTo(target); 
+				+ link + '" class="twitter_image_preview" />')
+				.appendTo(target)
+				.load(function() {
+					$('.loader_bar').remove();
+				});
 				return true;
 			} else return false;
 		}
