@@ -77,7 +77,6 @@
 			
 			$.getJSON(user_url, function(user_data) {
 				twitterUser = user_data;
-				console.log(twitterUser);
 				if (typeof callback == 'function') callback();
 			});
 		}
