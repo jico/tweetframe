@@ -129,7 +129,7 @@
 				if (options.bio == true) {
 					$('<div class="tf_bio">' + twitterUser.description + '</div>')
 						.appendTo('.tweetframe_userbar');
-				} else console.log('Bio is false');
+				}
 		}
 		
 		// Append tweets to stream with tweet detail according to options
