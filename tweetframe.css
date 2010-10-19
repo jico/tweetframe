@@ -107,3 +107,8 @@ li.tf_stat .tf_stat_title {
 	-moz-box-shadow: 0px -2px 48x rgba(0,0,0,0.1);
 	-webkit-box-shadow: 0px -2px 8px rgba(0,0,0,0.1);
 }
+
+#tf_loading {
+	font-size: 1em;
+	text-align: center;
+}
