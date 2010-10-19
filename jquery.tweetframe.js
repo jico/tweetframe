@@ -44,18 +44,22 @@
 			
 			// Image previews feature for plixi, tweetphoto, yfrog
 			if (options.imagePreview) {
+				// Pre-fetch loading bar
 				$('<img />')
 					.attr('src','http://www.jicobaligod.com/images/loadingbar.gif')
 					.appendTo(document)
 					.hide();
+					
 				$('.tweetframe_tweet a').live('click', function(e) {
 					var link = $(this).attr('href');
 					var parent = $(this).parent();
 					var w = parent.width() + 'px';
 
 					// If yfrog/plixi/tweetphoto, prevent default
-					if (loadImagePreview(link, parent)) {
+					if ($(this).hasClass('tf_previewed')) return;
+					else if (loadImagePreview(link, parent)) {
 						$('.twitter_image_preview').css('max-width', w);
+						$(this).addClass('tf_previewed');
 						return false;
 					}
 				});
