@@ -4,7 +4,7 @@
 		// Default parameters and settings
 		var defaults = {
 			username : 'jicooo',		// Twitter handle
-			count : 25,					// Number of tweets to display
+			count : 5,					// Number of tweets to display
 			userbar : true,				// Display user information
 			location : true,			// Display user location
 			stats_tweets : true,		// Display tweets count
@@ -36,10 +36,14 @@
 					loadUserbar();
 				});
 			}
-
+			
+			$('<div id="tf_loading"><p>Loading tweets...</p></div>')
+				.appendTo('.tweetframe');
+				
 			fetchTweets(options.username, options.count, page, function() {
 				loadTweets();
 				if (options.firstLarger) $('.tweetframe_tweet:first-child').css('font-size','larger');
+				$('#tf_loading').fadeOut(100);
 			});
 			
 			// Image previews feature for plixi, tweetphoto, yfrog
